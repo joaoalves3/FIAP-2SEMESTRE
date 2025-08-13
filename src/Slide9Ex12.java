@@ -3,29 +3,30 @@ import java.util.Scanner;
 public class Slide9Ex12 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        double valor,produtos,total,totalpreco=0,resposta,totalprecoAvista,aux,totalprecoParcelado;
-        System.out.println("quantos produtos vc comprou");
-        produtos= sc.nextDouble();
-        for (int cont=1;cont<=produtos;cont++){
-            System.out.println("digite o valor do seu produto" +  cont);
-            valor= sc.nextDouble();
-            totalpreco=valor+totalpreco;
+        int produto, cont1, resposta;
+        double preco, totalpreco=0;
+        System.out.println("digite a quantidad de produto");
+        produto= sc.nextInt();
+        for (cont1=1;cont1<=produto;cont1++){
+            System.out.println("digite o preço");
+            preco= sc.nextDouble();
+            totalpreco=totalpreco+preco;
 
         }
-        System.out.println("o preço total é de "+totalpreco);
-        System.out.println("se desejar parcelar digite 1 se deseja pagar a vista digita 2");
-        resposta= sc.nextDouble();
-        if (resposta==2){
-            aux=totalpreco/10;
-            totalprecoAvista=totalpreco-aux;
-            System.out.println(totalprecoAvista);
+        System.out.println("o preço ficou "+totalpreco);
+        System.out.println("digite 1 para pagar à vista ou 2 para parcelar em duas vezes");
+        resposta= sc.nextInt();
+        switch (resposta){
+            case 1->{
+                totalpreco=totalpreco-(totalpreco*10/100);
+                System.out.println("o preço vai será de "+totalpreco);
+            }
+            default -> {
+                totalpreco=(totalpreco+(totalpreco*15.5/100))/2;
+                System.out.println("o preço de cada parcela será de "+totalpreco);
+            }
         }
-        else {
-            aux=totalpreco/1.155;
-            totalprecoParcelado=totalpreco+aux;
-            System.out.println(totalprecoParcelado);
-        }
-
-
     }
 }
+
+
